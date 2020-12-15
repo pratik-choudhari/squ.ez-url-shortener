@@ -40,8 +40,8 @@ def get_original_url(id):
 
 def get_valid_combination(url: str)-> str:
     res = re.findall(regex, url)
-    url = url.replace("https://www", "")
-    url = url.replace("http://www", "")
+    url = url.replace("https://www.", "")
+    url = url.replace("http://www.", "")
     url = url.replace("https://", "")
     url = url.replace("http://", "")
     url = url.replace("www.", "")

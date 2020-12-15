@@ -10,11 +10,13 @@
 <body>
     <div class="uk-container uk-margin-xlarge-top">
     <h1 class="uk-heading-medium uk-text-center">Welcome to Squ.ez</h1>
+    <form action="{{ url_for('shorten') }}" method="POST">
     <div class="uk-margin">
-        <input class="uk-input uk-form-width-large uk-align-center" type="text" placeholder="Paste URL here">
+        <input name="url" class="uk-input uk-form-width-large uk-align-center" type="text" onclick="url_for('')" placeholder="Paste URL here">
     </div>
     <button class="uk-button uk-button-small uk-button-default uk-align-center uk-button-primary">Shorten</button>
     </div>
+    </form>
 </body>
 
 </html>

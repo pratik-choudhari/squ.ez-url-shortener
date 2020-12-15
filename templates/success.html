@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Success!</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../static/css/uikit.min.css" />
+        <script src="../static/js/uikit.min.js"></script>
+        <script src="../static/js/uikit-icons.min.js"></script>
+    </head>
+<body>
+    <div class="uk-container uk-margin-small-top">
+        <h2 class="uk-heading-xsmall uk-text-center">URL shortening successful!</h2>
+        <input id='url' name="url" class="uk-input uk-form-width-medium uk-text-center uk-align-center" type="text" value="{{shrt}}"></input>
+        <button onclick="copy()" class="uk-button uk-button-small uk-button-default uk-align-center uk-button-primary">Copy to clipboard</button>
+    </div>
+</body>
+<script>
+    function copy() {
+  /* Get the text field */
+  var copyText = document.getElementById("url");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("URL copied");
+} 
+</script>
+</html>

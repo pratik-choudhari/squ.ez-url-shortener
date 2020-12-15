@@ -17,17 +17,13 @@ app = Flask(__name__)
 
 # shortening route
 @app.route('/shorten', methods=['GET', 'POST'])
-def results():
-    url = request.args.get("url")
+def shorten():
+    url = request.form['url']
+    # url = request.args.get("url")
     if url:
         data = get_valid_combination(url)
         if data:
-            response = app.response_class(
-                response=json.dumps(data),
-                status=200,
-                mimetype='application/json'
-            )
-            return response
+            return render_template("success.html", shrt=data)
         else:
             return render_template("invalid.html")
     else:
