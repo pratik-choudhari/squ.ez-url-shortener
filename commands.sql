@@ -1,3 +1,11 @@
+-- make new table
 CREATE TABLE URLS (ID CHAR(10) PRIMARY KEY NOT NULL, ORIGINAL TEXT NOT NULL, VISITS INT NOT NULL DEFAULT 0;
 
-INSERT INTO URLS(ID, ORIGINAL, VISITS) VALUES ("dsfHJd", "www.gsdf.com", 2);
+-- insert data
+INSERT INTO URLS(ID, ORIGINAL, VISITS) VALUES ("", "", 0);
+
+-- get matching rows
+SELECT COUNT(*) FROM URLS WHERE ID="{id}";
+
+-- get original url
+SELECT ORIGINAL FROM URLS WHERE ID="{str(id)}";
