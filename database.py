@@ -53,6 +53,6 @@ def get_valid_combination(url: str)-> str:
                 if not insert_data(shrt, url, 0):
                     return False
                 else:
-                    data = "".join(["localhost/", shrt])
+                    data = "".join(["https://squez-url-shortener.herokuapp.com/", shrt])
                     break
     return data
