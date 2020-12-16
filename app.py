@@ -36,7 +36,7 @@ def redirect_logic(cmpt_url):
     if not cmpt_url:
         return render_template('index.html')
     else:
-        url = get_original_url(cmpt_url)
+        url = get_original_url(cmpt_url, True)
         if url:
             url = "".join(["http://www.", url])
             return redirect(url, code=302)
@@ -51,4 +51,4 @@ def homepage():
 
 
 if __name__ == '__main__':
-    app.run(host= '0.0.0.0',port = 5000, debug=True)
+    app.run(host= '0.0.0.0',port = 5000, debug=False)
