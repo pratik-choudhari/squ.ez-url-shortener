@@ -3,6 +3,9 @@ import random
 import string
 import re
 
+# domain name
+domain = "https://squez-url-shortener.herokuapp.com/"
+
 # URL verification regex 
 regex = r"""(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"""
 
@@ -80,6 +83,7 @@ def get_original_url(id: str, flag: bool):
         else:
             return False
 
+
 def get_valid_combination(url: str)-> str:
     """
     finds and returns shortened URL
@@ -103,9 +107,9 @@ def get_valid_combination(url: str)-> str:
                     if not insert_data(shrt, url, 0):
                         return False
                     else:
-                        data = "".join(["https://squez-url-shortener.herokuapp.com/", shrt])
+                        data = "".join([domain, shrt])
                         break
         else:
             shrt = get_original_url(url, False)
-            data = "".join(["https://squez-url-shortener.herokuapp.com/", shrt])
+            data = "".join([domain, shrt])
     return data
