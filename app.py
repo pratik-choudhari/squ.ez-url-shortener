@@ -1,4 +1,5 @@
 import re
+import os
 import json
 import warnings
 import random, string
@@ -51,4 +52,5 @@ def homepage():
 
 
 if __name__ == '__main__':
-    app.run(host= '0.0.0.0',port = 5000, debug=False)
+    os.environ['FLASK_ENV'] = "production"
+    app.run(host= '0.0.0.0',port = 5000)

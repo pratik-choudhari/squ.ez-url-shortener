@@ -7,7 +7,7 @@ import re
 domain = "https://squez-url-shortener.herokuapp.com/"
 
 # URL verification regex 
-regex = r"""(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"""
+regex = r"""(?i)\b((?:https?://|www\d{0,3}[.]{0, 1}|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"""
 
 # check_same_thread=False to disable thread sync
 conn = sqlite3.connect("url.db", check_same_thread=False)
@@ -93,11 +93,12 @@ def get_valid_combination(url: str)-> str:
         False if operation failed else return whole shortened link
     """
     res = re.findall(regex, url)
-    url = url.replace("https://www.", "")
-    url = url.replace("http://www.", "")
-    url = url.replace("https://", "")
-    url = url.replace("http://", "")
-    url = url.replace("www.", "")
+    url = re.sub(r"^(http://|https://){0,1}(www.|ww.|w.){0,1}", "", url)
+    # url = url.replace("https://www.", "")
+    # url = url.replace("http://www.", "")
+    # url = url.replace("https://", "")
+    # url = url.replace("http://", "")
+    # url = url.replace("www.", "")
     data = False
     if res:
         if not check_if_exists(url, False):
