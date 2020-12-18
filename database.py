@@ -9,7 +9,7 @@ domain = "https://squez-url-shortener.herokuapp.com/"
 # URL verification regex 
 regex = r"""(?i)\b((?:https?://|www\d{0,3}[.]{1}|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"""
 
-# check_same_thread=False to disable thread sync
+# check_same_thread=False to disable thread sync 
 conn = sqlite3.connect("url.db", check_same_thread=False)
 
 

@@ -8,11 +8,15 @@
         <script src="../static/js/uikit-icons.min.js"></script>
     </head>
 <body>
-    <div class="uk-container uk-margin-small-top">
+    <div class="uk-container uk-margin-xlarge-top">
         <h2 class="uk-heading-xsmall uk-text-center">URL shortening successful!</h2>
-        <input id='url' name="url" class="uk-input uk-form-width-medium uk-text-center uk-align-center" type="text" value="{{shrt}}"></input>
+        <input id='url' name="url" class="uk-input uk-form-width-large uk-text-center uk-align-center" type="text" value="{{shrt}}"></input>
+        <form action="{{ url_for('homepage') }}" method="POST">
         <button onclick="copy()" class="uk-button uk-button-small uk-button-default uk-align-center uk-button-primary">Copy to clipboard</button>
+        <button type="submit" class="uk-text-small uk-button uk-button-small uk-button-default uk-align-center uk-button-secondary">Shorten another URL</button>
+    </form>
     </div>
+
 </body>
 <script>
     function copy() {
