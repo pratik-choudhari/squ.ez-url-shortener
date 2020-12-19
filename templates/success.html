@@ -4,19 +4,24 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../static/css/uikit.min.css" />
+        <link rel="stylesheet" href="../static/css/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="../static/js/uikit.min.js"></script>
         <script src="../static/js/uikit-icons.min.js"></script>
     </head>
 <body>
+    <div class="icon-bar">
+        <a href="https://www.linkedin.com/in/pratik-choudhari/" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/pratik-choudhari" class="github" target="_blank"><i class="fa fa-github"></i></a>
+    </div>
     <div class="uk-container uk-margin-xlarge-top">
         <h2 class="uk-heading-xsmall uk-text-center">URL shortening successful!</h2>
         <input id='url' name="url" class="uk-input uk-form-width-large uk-text-center uk-align-center" type="text" value="{{shrt}}"></input>
-        <form action="{{ url_for('homepage') }}" method="POST">
         <button onclick="copy()" class="uk-button uk-button-small uk-button-default uk-align-center uk-button-primary">Copy to clipboard</button>
-        <button type="submit" class="uk-text-small uk-button uk-button-small uk-button-default uk-align-center uk-button-secondary">Shorten another URL</button>
-    </form>
+        <form action="{{ url_for('homepage') }}" method="POST">
+            <button type="submit" class="uk-text-small uk-button uk-button-small uk-button-default uk-align-center uk-button-secondary">Shorten another URL</button>
+        </form>
     </div>
-
 </body>
 <script>
     function copy() {

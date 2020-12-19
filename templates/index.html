@@ -5,20 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
         <link rel="stylesheet" href="../static/css/uikit.min.css" />
+        <link rel="stylesheet" href="../static/css/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="../static/js/uikit.min.js"></script>
         <script src="../static/js/uikit-icons.min.js"></script>
     </head>
 <body>
+    <div class="icon-bar">
+        <a href="https://www.linkedin.com/in/pratik-choudhari/" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/pratik-choudhari" class="github" target="_blank"><i class="fa fa-github"></i></a>
+    </div>
     <div class="uk-container uk-margin-xlarge-top">
-    <h1 class="uk-heading-medium uk-text-center">Welcome to Squ.ez</h1>
-    <h3 class="uk-text-center">Include www. in URL</h3>
-    <form action="{{ url_for('shorten') }}" method="POST">
-    <div class="uk-margin">
-        <input name="url" class="uk-input uk-form-width-large uk-align-center" type="text" onclick="url_for('')" placeholder="Paste URL here">
+        <h1 class="uk-heading-medium uk-text-center">Welcome to Squ.ez</h1>
+        <h3 class="uk-text-center">Include www. in URL</h3>
+        <form action="{{ url_for('shorten') }}" method="POST">
+            <div class="uk-margin">
+                <input name="url" class="uk-input uk-form-width-large uk-align-center" type="text" onclick="url_for('')" placeholder="Paste URL here">
+            </div>
+            <button class="uk-button uk-button-small uk-button-default uk-align-center uk-button-primary">Shorten</button>
+        </form>
+        <p class="uk-text-center"><a class="uk-link-heading" target="_blank" href="https://github.com/pratik-choudhari/squ.ez"><u>Checkout this project on github!</u></a></p>
     </div>
-    <button class="uk-button uk-button-small uk-button-default uk-align-center uk-button-primary">Shorten</button>
-    </div>
-    </form>
 </body>
 
 </html>

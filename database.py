@@ -2,9 +2,13 @@ import sqlite3
 import random
 import string
 import re
+import socket
 
 # domain name
-domain = "https://squez-url-shortener.herokuapp.com/"
+if socket.gethostname() != 'user-Lenovo-ideapad-510-15IKB':
+    domain = "https://squez-url-shortener.herokuapp.com/"
+else:
+    domain = "localhost:5000/"
 
 # URL verification regex 
 regex = r"""(?i)\b((?:https?://|www\d{0,3}[.]{1}|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"""
