@@ -3,12 +3,17 @@ import random
 import string
 import re
 import socket
+import sys
 
 # domain name
-if socket.gethostname() != 'user-Lenovo-ideapad-510-15IKB':
-    domain = "https://squez-url-shortener.herokuapp.com/"
+args = sys.argv
+if len(args)==2:
+    if args[1] == 'localhost':
+        domain = "localhost:5000/"
+    else:
+        domain = "https://squez-url-shortener.herokuapp.com/"
 else:
-    domain = "localhost:5000/"
+    domain = "https://squez-url-shortener.herokuapp.com/"
 
 # URL verification regex 
 regex = r"""(?i)\b((?:https?://|www\d{0,3}[.]{1}|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"""
