@@ -20,7 +20,6 @@ app = Flask(__name__)
 @app.route('/shorten', methods=['GET', 'POST'])
 def shorten():
     url = request.form['url']
-    # url = request.args.get("url")
     if url:
         data = get_valid_combination(url)
         if data:
