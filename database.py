@@ -2,7 +2,6 @@ import sqlite3
 import random
 import string
 import re
-import socket
 import sys
 
 # domain name
@@ -109,7 +108,7 @@ def get_valid_combination(url: str)-> str:
                         return False
                     data = "".join([domain, shrt])
                     break
-                
+
         else:
             shrt = get_original_url(url, False)
             data = "".join([domain, shrt])

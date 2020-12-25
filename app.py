@@ -1,11 +1,9 @@
-import re
 import os
-import json
 import warnings
-import random, string
+import random
 
-from flask import Flask, jsonify,render_template, request, redirect
-from database import check_if_exists, insert_data, get_original_url, get_valid_combination
+from flask import Flask, render_template, request, redirect
+from database import get_original_url, get_valid_combination
 
 
 warnings.filterwarnings('ignore')
