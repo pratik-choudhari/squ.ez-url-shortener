@@ -36,15 +36,13 @@ def check_if_exists(id: str, flag: bool):
         db_res = conn.execute(query)
         if [i[0] for i in db_res] == [0]:
             return False
-        else:
-            return True
+        return True
     else:
         query = f'''SELECT COUNT(*) FROM URLS WHERE ORIGINAL="{id}";'''
         db_res = conn.execute(query)
         if [i[0] for i in db_res] == [0]:
             return False
-        else:
-            return True
+        return True
 
 
 def insert_data(id: str, og: str, value: int):
@@ -62,8 +60,7 @@ def insert_data(id: str, og: str, value: int):
     conn.commit()
     if not db_res:
         return False
-    else:
-        return True
+    return True
 
 
 def get_original_url(id: str, flag: bool):
@@ -81,16 +78,15 @@ def get_original_url(id: str, flag: bool):
         url = [i[0] for i in db_res]
         if url:
             return url[0]
-        else:
-            return False
+        return False
+
     else:
         query = f'''SELECT ID FROM URLS WHERE ORIGINAL="{str(id)}";'''
         db_res = conn.execute(query)
         url = [i[0] for i in db_res]
         if url:
             return url[0]
-        else:
-            return False
+        return False
 
 
 def get_valid_combination(url: str)-> str:
@@ -111,9 +107,9 @@ def get_valid_combination(url: str)-> str:
                 if not check_if_exists(shrt, True):
                     if not insert_data(shrt, url, 0):
                         return False
-                    else:
-                        data = "".join([domain, shrt])
-                        break
+                    data = "".join([domain, shrt])
+                    break
+                
         else:
             shrt = get_original_url(url, False)
             data = "".join([domain, shrt])

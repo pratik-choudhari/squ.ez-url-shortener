@@ -24,8 +24,8 @@ def shorten():
         data = get_valid_combination(url)
         if data:
             return render_template("success.html", shrt=data)
-        else:
-            return render_template("invalid.html")
+        return render_template("invalid.html")
+        
     else:
         return render_template("index.html")
 
@@ -34,14 +34,12 @@ def shorten():
 @app.route('/<cmpt_url>', methods=['GET', 'POST'])
 def redirect_logic(cmpt_url):
     if not cmpt_url:
-        return render_template('index.html')
-    else:
-        url = get_original_url(cmpt_url, True)
-        if url:
-            url = "".join(["http://www.", url])
-            return redirect(url, code=302)
-        else:
-            return render_template("invalid.html")
+        return render_template('index.html')     
+    url = get_original_url(cmpt_url, True)
+    if url:
+        url = "".join(["http://www.", url])
+        return redirect(url, code=302)
+    return render_template("invalid.html")
 
 
 # index route
