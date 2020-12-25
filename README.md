@@ -11,3 +11,5 @@ A persistent url shortener built in python
 - Gunicorn for production deployment
 - UIkit in web interface
 - SQLite for database
+
+## Raise issue in case of any discrepancy
