@@ -23,9 +23,7 @@ def shorten():
         if data:
             return render_template("success.html", shrt=data)
         return render_template("invalid.html")
-        
-    else:
-        return render_template("index.html")
+    return render_template("index.html")
 
 
 # redirection route
