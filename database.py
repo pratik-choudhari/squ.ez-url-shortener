@@ -32,16 +32,12 @@ def check_if_exists(id: str, flag: bool):
     """
     if flag:
         query = f'''SELECT COUNT(*) FROM URLS WHERE ID="{id}";'''
-        db_res = conn.execute(query)
-        if [i[0] for i in db_res] == [0]:
-            return False
-        return True
     else:
         query = f'''SELECT COUNT(*) FROM URLS WHERE ORIGINAL="{id}";'''
-        db_res = conn.execute(query)
-        if [i[0] for i in db_res] == [0]:
-            return False
-        return True
+    db_res = conn.execute(query)
+    if [i[0] for i in db_res] == [0]:
+        return False
+    return True
 
 
 def insert_data(id: str, og: str, value: int):
@@ -73,19 +69,14 @@ def get_original_url(id: str, flag: bool):
     """
     if flag:
         query = f'''SELECT ORIGINAL FROM URLS WHERE ID="{str(id)}";'''
-        db_res = conn.execute(query)
-        url = [i[0] for i in db_res]
-        if url:
-            return url[0]
-        return False
-
     else:
         query = f'''SELECT ID FROM URLS WHERE ORIGINAL="{str(id)}";'''
-        db_res = conn.execute(query)
-        url = [i[0] for i in db_res]
-        if url:
-            return url[0]
-        return False
+    
+    db_res = conn.execute(query)
+    url = [i[0] for i in db_res]
+    if url:
+        return url[0]
+    return False
 
 
 def get_valid_combination(url: str)-> str:
